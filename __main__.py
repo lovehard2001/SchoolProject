@@ -1,14 +1,30 @@
 from ChooseCharacter import choose_character_1, choose_character_2, choose_character_3
-from Enemy import enemy_1, enemy_2, enemy_3
+from Enemy import Enemy, enemy_1, enemy_2, enemy_3
 
 def play(chars):
+    attack = False
+    game_over = False
+    turn = 0
     print("Battle Start.The following character are present : \n")
     for c in chars:
         print(c)
         print("")
-    
-    game_over = False
-    turn = 0
+        if c.alive == True :
+            while not game_over :
+                n = list(chars)
+                for i in range(0,n):
+                    sel = int(input("Choose Character to attack: {0} {1}".format((i+1),(chars[i+1]))))
+                    attack = True
+                    while attack == True:
+                        sel(attack)
+                        attack == False
+                        while attack == False:
+                            Enemy(attack)
+
+                    
+                
+                    
+
     while not game_over:
         print("It's the turn of Yours, Please select a character to attack: ".format(chars[turn].name))
         possible = []
@@ -30,14 +46,6 @@ def play(chars):
             print("That was it! {0} has died and the game is over.".format(chars[sel].name))
         turn += 1
         if turn == len(chars): turn =0
-
-#for count, enemy in enumerate(enemy):
- #   if turn == 2 :
-  #      if  enemy.alive == True:
-   #         enemy.attack(random)
-    #        turn -= 1
-
-
 
 def start_game():
     start_game = False
