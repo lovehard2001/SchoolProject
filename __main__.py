@@ -12,8 +12,8 @@ def play(chars):
         if c.alive == True :
             while not game_over :
                 n = list(chars)
-                for i in range(0,n):
-                    sel = int(input("Choose Character to attack: {0} {1}".format((i+1),(chars[i+1]))))
+                for i in len(n):
+                    sel = (input("Choose Character to attack: {0} {1}".format((i+1),(chars))))
                     attack = True
                     while attack == True:
                         sel(attack)
@@ -21,31 +21,28 @@ def play(chars):
                         while attack == False:
                             Enemy(attack)
 
-                    
-                
-                    
+                                   
+  #  while not game_over:
+   #     print("It's the turn of Yours, Please select a character to attack: ".format(chars[turn].name))
+    #    possible = []
+     #   for i in list(len(chars)):
+      #      if not i == turn :
+       #         possible.append(i)
+        #        print(" - ({0}) : {1} ".format(i,chars[i].c))
+       # sel = -1
+       # while not sel in possible :
+       #     s = input("Selection : ")
+        #    try :
+         #       sel = int(s)
+          #  except :
+           #     print("That's not a valid choice")
 
-    while not game_over:
-        print("It's the turn of Yours, Please select a character to attack: ".format(chars[turn].name))
-        possible = []
-        for i in list(len(chars)):
-            if not i == turn :
-                possible.append(i)
-                print(" - ({0}) : {1} ".format(i,chars[i].c))
-        sel = -1
-        while not sel in possible :
-            s = input("Selection : ")
-            try :
-                sel = int(s)
-            except :
-                print("That's not a valid choice")
-
-        chars[turn].attack(chars[sel])
-        if chars[sel].hp <= 0 :
-            game_over = True
-            print("That was it! {0} has died and the game is over.".format(chars[sel].name))
-        turn += 1
-        if turn == len(chars): turn =0
+ #       chars[turn].attack(chars[sel])
+  #      if chars[sel].hp <= 0 :
+   #         game_over = True
+    #        print("That was it! {0} has died and the game is over.".format(chars[sel].name))
+     #   turn += 1
+      #  if turn == len(chars): turn =0
 
 def start_game():
     start_game = False
